@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PromptClean — AI security for what you paste</title>
+  <meta name="description" content="AI security for what you paste. A free Chrome extension that hides customer data and secrets in logs before they reach ChatGPT, Claude or Gemini, and collapses the repeated lines. Two keyboard shortcuts, no account, nothing sent anywhere.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="assets/icon-128.png" alt="" width="32" height="32">PromptClean</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#shortcuts">Shortcuts</a>
+        <a href="#who">Who it's for</a>
+        <a href="#it">For IT teams</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-copy">
+          <p class="eyebrow">AI security for what you paste · Free Chrome extension</p>
+          <h1>Paste the log. Not the customer.</h1>
+          <p class="lede">PromptClean adds a security check before anything reaches ChatGPT, Claude or Gemini. It hides customer names, account numbers, passwords and keys in a log, and collapses the hundreds of repeated lines around the error.</p>
+          <div class="actions">
+            <a class="btn primary" href="#install">Add to Chrome</a>
+            <a class="btn" href="#shortcuts">See the shortcuts</a>
+          </div>
+          <p class="hero-shortcut">Or skip the panel:
+            <span class="combo"><kbd>Alt</kbd><span class="plus">+</span><kbd>Shift</kbd><span class="plus">+</span><kbd>X</kbd></span>
+            in any chat box.</p>
+          <p class="facts-strip"><span>No account</span><span>No server</span><span>Nothing sent anywhere</span><span>Free, no limits</span></p>
+        </div>
+
+        <div class="demo" role="img" aria-label="Example. Pasted as-is: two hundred identical timeout errors, a customer email and a card number. What the AI sees: one timeout line with a count of the rest, and placeholders where the email and card number were.">
+          <div class="pane before">
+            <div class="pane-head"><span>Pasted as-is</span><span class="file">uat-checkout.log</span></div>
+<pre><span class="dim">09:14:02Z ERROR payment timeout after 3000ms
+09:14:03Z ERROR payment timeout after 3000ms
+09:14:04Z ERROR payment timeout after 3000ms
+⋮  197 more of the same</span>
+customer: <span class="exposed">maria.gonzalez@acme.com</span>
+card:     <span class="exposed">4111 1111 1111 1111</span></pre>
+          </div>
+          <p class="demo-arrow">PromptClean</p>
+          <div class="pane after">
+            <div class="pane-head"><span>What the AI sees</span><span class="file">nothing left your browser</span></div>
+<pre><span class="dim">09:14:02Z ERROR payment timeout after 3000ms</span>
+  <span class="collapsed">[… 199 more similar lines]</span>
+customer: <span class="ph">[EMAIL_1]</span>
+card:     <span class="ph">[CARD_1]</span></pre>
+            <p class="pane-foot">202 lines → 4 · 2 secrets hidden</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>Three steps, and you still press send</h2>
+        </div>
+        <ol class="steps">
+          <li><h3>Paste as usual</h3><p>Into ChatGPT, Claude or Gemini. A small note appears when the draft holds something sensitive.</p></li>
+          <li><h3>Check what it found</h3><p>Each finding says why it matters. Untick anything you want to keep.</p></li>
+          <li><h3>Send the clean version</h3><p>Values become placeholders such as <code>[NAME_1]</code>. Nothing is ever sent for you.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band" id="shortcuts">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Keyboard shortcuts</p>
+          <h2>Two keys. No panel needed.</h2>
+          <p class="lede">Click into the chat box and press a shortcut. The text is cleaned where it is, a note says what changed, and Ctrl+Z puts it back.</p>
+        </div>
+        <div class="keys">
+          <article class="key-card">
+            <span class="combo"><kbd>Alt</kbd><span class="plus">+</span><kbd>Shift</kbd><span class="plus">+</span><kbd>X</kbd></span>
+            <h3>Redact</h3>
+            <p>Every name, account number, password and key in the box becomes a placeholder. Your wording stays exactly as you wrote it.</p>
+            <p class="swap"><span class="from">maria.gonzalez@acme.com</span><span class="arrow">→</span><span class="to">[EMAIL_1]</span></p>
+          </article>
+          <article class="key-card">
+            <span class="combo"><kbd>Alt</kbd><span class="plus">+</span><kbd>Shift</kbd><span class="plus">+</span><kbd>R</kbd></span>
+            <h3>Redact and compress</h3>
+            <p>Redacts first, then collapses repeated log lines and minifies JSON, so a long paste comes out short.</p>
+            <p class="swap"><span class="from">ERROR timeout × 200</span><span class="arrow">→</span><span class="to">1 line + a count</span></p>
+          </article>
+        </div>
+        <p class="band-note">On a Mac, Alt is the ⌥ Option key. Change either shortcut at <code>chrome://extensions/shortcuts</code>.</p>
+      </div>
+    </section>
+
+    <section id="who">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Who it's for</p>
+          <h2>Anyone who reads logs</h2>
+          <p class="lede">Developers and business analysts make the same move when something breaks. They leak different things.</p>
+        </div>
+        <div class="audiences">
+          <article class="aud">
+            <p class="eyebrow">Developers</p>
+            <p class="quote">“Why is this failing?”</p>
+            <dl>
+              <dt>Pastes</dt><dd>Stack traces, server logs, config files</dd>
+              <dt>Leaks</dt><dd>API keys, passwords, connection strings</dd>
+            </dl>
+          </article>
+          <article class="aud">
+            <p class="eyebrow">Business analysts and testers</p>
+            <p class="quote">“What do I write in the defect?”</p>
+            <dl>
+              <dt>Pastes</dt><dd>UAT errors, logs, rows copied from a spreadsheet</dd>
+              <dt>Leaks</dt><dd>Customer names, account and policy numbers, dates of birth</dd>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="catches">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">What it catches</p>
+          <h2>The details that should stay behind</h2>
+        </div>
+        <div class="catch">
+          <div><h3>People</h3><ul class="chips"><li>Customer names</li><li>Spreadsheet name columns</li><li>Emails</li><li>Phone numbers</li><li>Addresses</li><li>Dates of birth</li></ul></div>
+          <div><h3>Money</h3><ul class="chips"><li>Card numbers</li><li>Bank accounts</li><li>IBANs</li><li>Sort codes</li></ul></div>
+          <div><h3>IDs</h3><ul class="chips"><li class="suggest">Customer IDs</li><li class="suggest">Policy numbers</li><li>US SSN</li><li>UK National Insurance</li><li>Aadhaar</li><li>PAN</li><li>Passport</li></ul></div>
+          <div><h3>Secrets</h3><ul class="chips"><li>AWS, GitHub, OpenAI, Anthropic, Stripe, Slack and Google keys</li><li>Passwords</li><li>Tokens</li><li>Private keys</li></ul></div>
+        </div>
+        <p class="note">Dashed items are suggested rather than ticked, because the AI often needs the ID to follow a failure. Detection is best-effort: a name with nothing around it, as in “Ask Priya Patel to retest”, is not caught, so read the result before you send it.</p>
+      </div>
+    </section>
+
+    <section id="it">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">For your IT team</p>
+          <h2>Easy for IT to say yes to</h2>
+        </div>
+        <div class="trio">
+          <div><p class="trio-label">Reads</p><p class="trio-big">Only the chat box</p><p>On ChatGPT, Claude and Gemini. Elsewhere, only text you select, after you click or press a shortcut.</p></div>
+          <div><p class="trio-label">Stores</p><p class="trio-big">Only settings</p><p>History is optional, off by default, and keeps redacted text only. Placeholders live in memory.</p></div>
+          <div class="nothing"><p class="trio-label">Sends</p><p class="trio-big">Nothing</p><p>No network requests at all. An automated check in the code fails if one is ever added.</p></div>
+        </div>
+        <div class="it-more">
+          <p class="it-line"><span><strong>Account:</strong> none</span><span><strong>Analytics:</strong> none</span><span><strong>Source:</strong> <span class="todo">link once published</span></span><span><a href="privacy.html">Read the privacy policy</a></span></p>
+          <details>
+            <summary>Why each permission</summary>
+            <div class="table-scroll">
+              <table class="perm-table">
+                <tr><th scope="row"><code>storage</code></th><td>Your settings: which sites show the button, and which options are on.</td></tr>
+                <tr><th scope="row"><code>activeTab</code>, <code>scripting</code></th><td>Read and write the page you are on, only after you click the toolbar button, a right-click item or a shortcut.</td></tr>
+                <tr><th scope="row"><code>contextMenus</code></th><td>The right-click items “Redact” and “Compressed”.</td></tr>
+                <tr><th scope="row">chatgpt.com, chat.openai.com, claude.ai, gemini.google.com</th><td>Show the button and read and write the prompt box on those four sites only.</td></tr>
+              </table>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" id="install">
+      <div class="wrap">
+        <div class="stack">
+          <h2>Get PromptClean</h2>
+          <p class="lede">Free. Every kind of detection. No limits, no account.</p>
+        </div>
+        <!-- Replace with the Chrome Web Store listing once it is live, and point the hero button at it too. -->
+        <p class="actions"><span class="btn primary" aria-disabled="true">Chrome Web Store — <span class="todo">link coming soon</span></span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>PromptClean</span>
+      <a href="privacy.html">Privacy policy</a>
+      <span>Contact: <span class="todo">your contact email</span></span>
+      <span>This site uses no cookies, analytics or third-party scripts.</span>
+    </div>
+  </footer>
+</body>
+</html>
