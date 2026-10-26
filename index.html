@@ -6,7 +6,7 @@
   <title>PromptClean — AI security for what you paste</title>
   <meta name="description" content="AI security for what you paste. A free Chrome extension that hides customer data and secrets in logs before they reach ChatGPT, Claude or Gemini, and collapses the repeated lines. Two keyboard shortcuts, no account, nothing sent anywhere.">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/style.css?v=4">
+  <link rel="stylesheet" href="assets/style.css?v=5">
 </head>
 <body>
   <a href="#main" class="skip">Skip to content</a>
@@ -137,7 +137,7 @@ card:     <span class="ph">[CARD_1]</span></pre>
               </div>
               <div class="mock-floats">
                 <span class="hint-chip"><i>!</i>2 sensitive items found — click to review</span>
-                <span class="fab-pill">✨ Clean prompt</span>
+                <span class="fab-pill"><span class="mark"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M12 2c.5 5.2 4.8 9.5 10 10-5.2.5-9.5 4.8-10 10-.5-5.2-4.8-9.5-10-10 5.2-.5 9.5-4.8 10-10Z"/></svg></span>Clean prompt</span>
               </div>
             </div>
             <div class="flow-text"><span class="flow-n">1</span><h3>Paste as usual</h3><p>Into ChatGPT, Claude or Gemini. A small note appears when the draft holds something sensitive.</p></div>
@@ -145,13 +145,16 @@ card:     <span class="ph">[CARD_1]</span></pre>
           <li class="flow-step rise">
             <div class="flow-ui" aria-hidden="true">
               <div class="mock panel">
-                <div class="p-head"><img src="assets/icon-128.png" alt="" width="20" height="20"><strong>PromptClean</strong></div>
-                <div class="p-tabs"><span class="on">Redact</span><span>Compress</span></div>
-                <p class="p-count">2 sensitive items found · 2 will be redacted</p>
-                <ul class="p-rows">
-                  <li><i class="cb"></i><b>Email address</b><em>▸</em></li>
-                  <li><i class="cb"></i><b>Payment card number</b><em>▸</em></li>
-                </ul>
+                <div class="p-head"><img src="assets/icon-128.png" alt="" width="22" height="22"><strong>PromptClean</strong><span class="p-pill"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11h14v10H5z"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>On-device</span><span class="p-x"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span></div>
+                <div class="p-tabs"><span class="on"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg>Redact</span><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 15 6 6"/><path d="m15 9 6-6"/><path d="M21 16v5h-5"/><path d="M21 8V3h-5"/><path d="M3 16v5h5"/><path d="m3 21 6-6"/><path d="M3 8V3h5"/><path d="M9 9 3 3"/></svg>Compress</span></div>
+                <p class="p-intro">Finds secrets and personal data and swaps them for placeholders like [API_KEY_1]. You choose what to hide.</p>
+                <div class="p-card">
+                  <p class="p-count">2 sensitive items found · 2 will be redacted</p>
+                  <ul class="p-rows">
+                    <li><i class="cb"></i><b>Email address</b><em><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></em></li>
+                    <li><i class="cb"></i><b>Payment card number</b><em><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></em></li>
+                  </ul>
+                </div>
                 <span class="p-btn">Scan &amp; redact</span>
               </div>
             </div>
