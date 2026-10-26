@@ -8,7 +8,6 @@ Fill in the highlighted placeholders (they render with a yellow background):
 
 - `privacy.html`: publisher name and contact email
 - `index.html` and `privacy.html` footers: contact email
-- `index.html`, "For your IT team": the link to the public source code (or remove the row)
 - `index.html`, "Get PromptClean": the Chrome Web Store link, and point the "Add to Chrome" button at it
 
 ## Publish on GitHub Pages
