@@ -353,3 +353,27 @@ details[open] summary { border-bottom: 1px solid var(--line); }
   .site-header { position: static; }
   html { scroll-padding-top: 12px; }
 }
+
+/* ---------- gradients: soft teal swooshes in the hero, a deep teal gradient with faint curved light in the dark
+   band, and gradient buttons, step numbers and highlights. CSS and inline SVG only (no image requests). ---------- */
+:root { --grad-accent: linear-gradient(135deg, #0d7d73 0%, var(--accent) 52%, #0b5f58 100%); --grad-soft: linear-gradient(90deg, var(--ok-bg), #c3efe8); }
+.hero { position: relative; overflow: hidden; background:
+  radial-gradient(760px 420px at 88% -6%, rgba(94, 234, 212, 0.38), transparent 62%),
+  radial-gradient(560px 340px at -4% 108%, rgba(153, 246, 228, 0.5), transparent 62%),
+  linear-gradient(180deg, #fcfefd 0%, var(--bg) 100%); }
+.hero::before { content: ""; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 760' preserveAspectRatio='xMaxYMid slice'%3E %3Cdefs%3E %3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232dd4bf' stop-opacity='.34'/%3E%3Cstop offset='1' stop-color='%230f766e' stop-opacity='.05'/%3E%3C/linearGradient%3E %3ClinearGradient id='b' x1='1' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2399f6e4' stop-opacity='.55'/%3E%3Cstop offset='1' stop-color='%235eead4' stop-opacity='.06'/%3E%3C/linearGradient%3E %3C/defs%3E %3Cpath d='M1440 0 C1250 40 1090 150 1040 330 C990 520 1160 700 1440 690 Z' fill='url(%23a)'/%3E %3Cpath d='M1440 120 C1300 150 1180 250 1170 380 C1160 520 1280 620 1440 610 Z' fill='url(%23b)'/%3E %3Cpath d='M-20 640 C180 560 330 640 470 740 L-20 760 Z' fill='url(%23b)' opacity='.7'/%3E %3C/svg%3E") right center / cover no-repeat; pointer-events: none; }
+.hero .wrap { position: relative; }
+.hero h1 mark { background: linear-gradient(90deg, #a7f0e3, #6fe6d3) 0 90% / 100% 34% no-repeat; }
+.btn.primary { background: var(--grad-accent); border-color: transparent; box-shadow: 0 12px 26px -12px rgba(15, 118, 110, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.22); }
+.flow-n { background: var(--grad-accent); }
+.p-btn { background: var(--grad-accent); }
+.pane-foot { background: var(--grad-soft); }
+.flow-ui { background: radial-gradient(260px 200px at 100% 0%, rgba(94, 234, 212, 0.32), transparent 70%), linear-gradient(160deg, var(--mint) 0%, var(--bg) 100%); }
+.moment { position: relative; overflow: hidden; background:
+  radial-gradient(820px 460px at 6% 0%, rgba(45, 212, 191, 0.22), transparent 62%),
+  radial-gradient(760px 520px at 100% 100%, rgba(20, 184, 166, 0.2), transparent 62%),
+  linear-gradient(165deg, #0d4a47 0%, var(--band) 48%, #072a2a 100%); }
+.moment::before { content: ""; position: absolute; inset: 0; -webkit-mask-image: linear-gradient(90deg, transparent 0, transparent 34%, #000 62%); mask-image: linear-gradient(90deg, transparent 0, transparent 34%, #000 62%); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 760' preserveAspectRatio='xMidYMid slice' fill='none'%3E %3Cdefs%3E%3ClinearGradient id='l' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%235eead4' stop-opacity='0'/%3E%3Cstop offset='.5' stop-color='%235eead4' stop-opacity='.38'/%3E%3Cstop offset='1' stop-color='%235eead4' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E %3Cpath d='M-40 560 C260 430 520 700 820 560 S1260 360 1500 470' stroke='url(%23l)' stroke-width='1.5'/%3E %3Cpath d='M-40 610 C300 470 560 760 880 610 S1280 420 1500 520' stroke='url(%23l)' stroke-width='1.2' opacity='.7'/%3E %3Cpath d='M-40 660 C320 520 600 800 940 660 S1300 480 1500 570' stroke='url(%23l)' stroke-width='1' opacity='.5'/%3E %3Cpath d='M-60 120 C200 40 420 220 700 120 S1180 -20 1500 90' stroke='url(%23l)' stroke-width='1.2' opacity='.5'/%3E %3C/svg%3E") center / cover no-repeat; pointer-events: none; }
+.moment > .wrap { position: relative; }
+.moment .pane-foot { background: var(--grad-soft); }
+.seg input:checked + label { background: linear-gradient(135deg, #99f6e4, #5eead4); }
