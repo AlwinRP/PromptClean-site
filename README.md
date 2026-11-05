@@ -4,11 +4,10 @@ The landing page (`index.html`) and privacy policy (`privacy.html`) for the Prom
 
 ## Before publishing
 
-Fill in the highlighted placeholders (they render with a yellow background):
+Fill in the highlighted placeholders (they render with a yellow background). The Chrome Web Store link is already set in both "Add to Chrome" buttons of `index.html`; it points at the unlisted listing, so change it if the listing URL changes.
 
 - `privacy.html`: publisher name and contact email
 - `index.html` and `privacy.html` footers: contact email
-- `index.html`, "Get PromptClean": the Chrome Web Store link, and point the "Add to Chrome" button at it
 
 ## Publish on GitHub Pages
 
